@@ -2,7 +2,6 @@ import React from 'react';
 import Character from './Character';
 
 const CharactersList = ({ characters }) => {
-  //console.log({characters})
   return (
     <div className='characters'>
       {characters.map((character) => (

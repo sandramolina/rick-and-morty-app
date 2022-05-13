@@ -1,3 +1,21 @@
 .App {
   text-align: center;
 }
+
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+}
+
+.character {
+  background-color: rgb(184, 222, 238);
+  margin: 1%;
+  padding: 1%;
+  border-radius: 2%;
+}
+
+.avatar {
+  border-radius: 2%;
+}
