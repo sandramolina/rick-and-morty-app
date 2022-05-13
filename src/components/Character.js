@@ -28,6 +28,12 @@ const Character = ({ character }) => {
             <li>
               <strong>Gender:</strong> {character.gender}
             </li>
+            <li>
+              <strong>Origin:</strong> {character.origin.name}
+            </li>
+            <li>
+              <strong>Last known location:</strong> {character.location.name}
+            </li>
           </ul>
         </div>
       </div>

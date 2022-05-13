@@ -2,6 +2,20 @@
   text-align: center;
 }
 
+body {
+  background: #000 url('../public/background.png') no-repeat;
+  background-attachment: fixed;
+  font-family: 'Creepster', cursive;
+}
+.logo {
+  margin-top: 1rem;
+}
+
+#title {
+  color: #fff;
+  font-size: xxx-large;
+}
+
 .search {
   height: 100px;
 }
@@ -15,8 +29,15 @@ input[type='text'] {
   width: 60%;
   margin: auto;
   outline: none;
+  font-family: 'Creepster', cursive;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
 }
 
+ul {
+  text-align: left;
+}
 .characters {
   /* display: flex;
   flex-wrap: wrap;
@@ -91,7 +112,7 @@ input[type='text'] {
   height: 1vw;
   width: 1vw;
   margin-right: 0.5vw;
-  background-color: rgb(27, 7, 247);
+  background-color: rgb(131, 235, 70);
   border-radius: 50%;
   display: inline-block;
 }
