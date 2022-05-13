@@ -50,11 +50,12 @@ ul {
 
 .character-card {
   /* border-radius: 2%;
-  perspective: 1000px; */
+  */
   margin: 6%;
   cursor: pointer;
   background-color: transparent;
   height: 300px;
+  perspective: 1000px; 
 }
 
 .avatar {
@@ -135,3 +136,21 @@ ul {
   border-radius: 50%;
   display: inline-block;
 }
+
+@media (max-width: 800px) {
+  .characters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .characters {
+    grid-template-columns: 1fr;
+  }
+  .avatar {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+  }
+}
+
