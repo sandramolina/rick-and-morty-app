@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+.search {
+  height: 100px;
+}
+
+input[type='text'] {
+  display: block;
+  padding: 1vw;
+  font-size: 100%;
+  border: 1%;
+  border-radius: 1vw;
+  width: 60%;
+  margin: auto;
+  outline: none;
+}
+
 .characters {
   /* display: flex;
   flex-wrap: wrap;
@@ -23,7 +38,7 @@
 
 .avatar {
   border-radius: 2%;
-  width: 100%;
+  object-fit: cover;
 }
 
 .character-card h2 {

@@ -10,9 +10,15 @@ const Character = ({ character }) => {
         <div className='card-back'>
           <h2>{character.name}</h2>
           <ul>
-            <li>Stats: {character.status}</li>
-            <li>Species: {character.species}</li>
-            <li>Gender: {character.gender}</li>
+            <li>
+              <strong>Stats:</strong> {character.status}
+            </li>
+            <li>
+              <strong>Species:</strong> {character.species}
+            </li>
+            <li>
+              <strong>Gender:</strong> {character.gender}
+            </li>
           </ul>
         </div>
       </div>

@@ -4,6 +4,8 @@ import TitleBar from '../components/TitleBar';
 
 const CharactersListBox = () => {
   const [characters, setCharacters] = useState([]);
+  const [SearchText, setSearchText] = useState('');
+
   //console.log(characters);
   useEffect(() => {
     loadCharacters();
@@ -15,10 +17,16 @@ const CharactersListBox = () => {
       .then((charactersList) => setCharacters(charactersList.results))
       .catch((err) => console.error);
   };
+
+  const handleSearchInput = (event) => setSearchText(event.target.value);
+
   return (
     <>
       <div>
-        <TitleBar />
+        <TitleBar
+          searchText={SearchText}
+          handleSearchInput={handleSearchInput}
+        />
       </div>
       <div>
         <CharactersList characters={characters} />
