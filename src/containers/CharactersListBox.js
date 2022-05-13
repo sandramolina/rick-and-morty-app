@@ -5,20 +5,24 @@ import TitleBar from '../components/TitleBar';
 const CharactersListBox = () => {
   const [characters, setCharacters] = useState([]);
   const [SearchText, setSearchText] = useState('');
+  const [query, setQuery] = useState('');
 
   //console.log(characters);
   useEffect(() => {
     loadCharacters();
-  }, []);
+  }, [query]);
 
   const loadCharacters = () => {
-    fetch('https://rickandmortyapi.com/api/character')
+    fetch(`https://rickandmortyapi.com/api/character/?name=${query}`)
       .then((res) => res.json())
       .then((charactersList) => setCharacters(charactersList.results))
       .catch((err) => console.error);
   };
 
-  const handleSearchInput = (event) => setSearchText(event.target.value);
+  const handleSearchInput = (event) => {
+    setSearchText(event.target.value);
+    setQuery(event.target.value);
+  };
 
   return (
     <>
@@ -36,3 +40,5 @@ const CharactersListBox = () => {
 };
 
 export default CharactersListBox;
+
+//?name=rick https://rickandmortyapi.com/api/character/?name=rick&status=alive

@@ -86,3 +86,31 @@ input[type='text'] {
   list-style: none;
   padding-bottom: 10px;
 }
+
+.status-icon-alive {
+  height: 1vw;
+  width: 1vw;
+  margin-right: 0.5vw;
+  background-color: rgb(27, 7, 247);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
+.status-icon-dead {
+  height: 1vw;
+  width: 1vw;
+  margin-right: 0.5vw;
+  background-color: rgb(247, 7, 7);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-icon-unknown {
+  height: 1vw;
+  width: 1vw;
+  margin-right: 0.5vw;
+  background-color: rgb(247, 163, 7);
+  border-radius: 50%;
+  display: inline-block;
+}

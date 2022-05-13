@@ -11,6 +11,15 @@ const Character = ({ character }) => {
           <h2>{character.name}</h2>
           <ul>
             <li>
+              <span
+                className={
+                  character.status === 'Alive'
+                    ? 'status-icon-alive'
+                    : character.status === 'Dead'
+                    ? 'status-icon-dead'
+                    : 'status-icon-unknown'
+                }
+              ></span>
               <strong>Stats:</strong> {character.status}
             </li>
             <li>
