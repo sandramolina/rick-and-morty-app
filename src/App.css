@@ -144,3 +144,15 @@ ul {
   }
 }
 
+.pages-list{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.btn {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
