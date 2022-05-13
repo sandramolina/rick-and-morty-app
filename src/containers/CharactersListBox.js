@@ -5,29 +5,30 @@ import TitleBar from '../components/TitleBar';
 
 const CharactersListBox = () => {
   const [characters, setCharacters] = useState([]);
-  const [SearchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState('');
   const [query, setQuery] = useState('');
 
   useEffect(() => {
     loadCharacters();
   }, [query]);
 
-  const loadCharacters = () =>
+  const loadCharacters = () => {
     fetch(`https://rickandmortyapi.com/api/character/?name=${query}`)
       .then((res) => res.json())
       .then((charactersList) => setCharacters(charactersList.results))
       .catch((err) => console.error);
+  };
 
   const handleSearchInput = (event) => {
     setSearchText(event.target.value);
-    setQuery(event.target.value);
+    setQuery(searchText);
   };
 
   return (
     <>
       <div>
         <TitleBar
-          searchText={SearchText}
+          searchText={searchText}
           handleSearchInput={handleSearchInput}
         />
       </div>
