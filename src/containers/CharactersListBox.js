@@ -40,11 +40,11 @@ const CharactersListBox = () => {
   return (
     <>
       <div>
-        <ResultsPagination loadPage={loadPage} pages={pages} />
         <TitleBar
           searchText={searchText}
           handleSearchInput={handleSearchInput}
         />
+        <ResultsPagination loadPage={loadPage} pages={pages} />
       </div>
       <div>
         {characters ? <CharactersList characters={characters} /> : <NotFound />}
