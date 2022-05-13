@@ -11,7 +11,7 @@ body {
   margin-top: 1rem;
 }
 
-#title {
+#title, #not-found {
   color: #fff;
   font-size: xxx-large;
 }

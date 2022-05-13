@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CharactersList from '../components/CharactersList';
+import NotFound from '../components/NotFound';
 import TitleBar from '../components/TitleBar';
 
 const CharactersListBox = () => {
@@ -31,11 +32,7 @@ const CharactersListBox = () => {
         />
       </div>
       <div>
-        {characters ? (
-          <CharactersList characters={characters} />
-        ) : (
-          <h1>No results found</h1>
-        )}
+        {characters ? <CharactersList characters={characters} /> : <NotFound />}
       </div>
     </>
   );
