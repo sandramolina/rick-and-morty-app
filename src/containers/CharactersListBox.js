@@ -6,18 +6,18 @@ import TitleBar from '../components/TitleBar';
 
 const CharactersListBox = () => {
   const [characters, setCharacters] = useState([]);
-  const [searchText, setSearchText] = useState('');
-  const [query, setQuery] = useState('');
   const [pages, setPages] = useState(0);
   const [pageNumber, setPageNumber] = useState('');
 
+  const [nameToSearch, setNameToSearch] = useState('');
+  const [stastatusToSearch, setStastatusToSearch] = useState('');
+  const [genderToSearch, setGenderToSearch] = useState('');
+
   useEffect(() => {
-    setQuery(searchText);
     loadCharacters(
-      `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${query}`
+      `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${nameToSearch}&status=${stastatusToSearch}&gender=${genderToSearch}`
     );
-    setPageNumber('');
-  }, [pageNumber, searchText, query]);
+  }, [pageNumber, stastatusToSearch, nameToSearch, genderToSearch]);
 
   const loadCharacters = (url) => {
     fetch(url)
@@ -29,20 +29,22 @@ const CharactersListBox = () => {
       .catch((err) => console.error);
   };
 
-  const handleSearchInput = (event) => {
-    setSearchText(event.target.value);
-  };
-
   const loadPage = (event) => {
     setPageNumber(event.target.value);
+  };
+
+  const getSearch = (characterSearch) => {
+    setNameToSearch(characterSearch.name);
+    setStastatusToSearch(characterSearch.status);
+    setGenderToSearch(characterSearch.gender);
+    setPageNumber('');
   };
 
   return (
     <>
       <div>
         <TitleBar
-          searchText={searchText}
-          handleSearchInput={handleSearchInput}
+          onFormSubmit={(characterSearch) => getSearch(characterSearch)}
         />
       </div>
       <div>
