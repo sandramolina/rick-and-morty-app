@@ -50,8 +50,8 @@ const CharactersListBox = () => {
       <div>
         {characters ? (
           <>
-            <ResultsPagination loadPage={loadPage} pages={pages} />
             <CharactersList characters={characters} />
+            <ResultsPagination loadPage={loadPage} pages={pages} />
           </>
         ) : (
           <NotFound />

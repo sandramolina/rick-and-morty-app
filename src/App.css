@@ -60,6 +60,7 @@ input[type='text'] {
   -moz-box-shadow:    inset 0 0 10px #000000;
   -webkit-box-shadow: inset 0 0 10px #000000;
   box-shadow:         inset 0 0 10px #000000;
+  cursor: pointer;
 }
 
 .search-btn {
@@ -68,7 +69,7 @@ input[type='text'] {
   font-size: 100%;
   border: 1%;
   border-radius: 1vw;
-  width: 15%;
+  width: 7%;
   margin: 1%;
   outline: none;
   font-family: 'Creepster', cursive;
@@ -174,6 +175,19 @@ ul {
   background-color: rgb(247, 163, 7);
   border-radius: 50%;
   display: inline-block;
+}
+
+
+@media (max-width: 1601px) {
+  .characters {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1460px) {
+  .characters {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 1230px) {
