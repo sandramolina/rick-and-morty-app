@@ -3,17 +3,22 @@ import React, { useState } from 'react';
 const Search = ({ onFormSubmit }) => {
   const [searchText, setSearchText] = useState('');
   const [status, setStatus] = useState('');
+  const [gender, setGender] = useState('');
 
   const handleSearchInput = (event) => setSearchText(event.target.value);
   const handleStatusSelection = (event) => setStatus(event.target.value);
+  const handleGenderSelection = (event) => setGender(event.target.value);
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const nameToSearch = searchText;
     const statusToSearch = status;
-    onFormSubmit({ name: nameToSearch, status: statusToSearch });
-    setSearchText('');
-    setStatus('');
+    const genderToSearch = gender;
+    onFormSubmit({
+      name: nameToSearch,
+      status: statusToSearch,
+      gender: genderToSearch,
+    });
   };
   return (
     <section className='search'>
@@ -28,6 +33,20 @@ const Search = ({ onFormSubmit }) => {
           </option>
           <option value='alive'>Alive</option>
           <option value='dead'>Dead</option>
+          <option value='unknown'>Unknown</option>
+        </select>
+
+        <select
+          name='gender'
+          onChange={handleGenderSelection}
+          className='selection'
+        >
+          <option value='' defaultValue>
+            -Chose a Gender-
+          </option>
+          <option value='female'>Female</option>
+          <option value='male'>Male</option>
+          <option value='genderless'>Genderless</option>
           <option value='unknown'>Unknown</option>
         </select>
 

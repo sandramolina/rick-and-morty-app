@@ -11,12 +11,13 @@ const CharactersListBox = () => {
 
   const [nameToSearch, setNameToSearch] = useState('');
   const [stastatusToSearch, setStastatusToSearch] = useState('');
+  const [genderToSearch, setGenderToSearch] = useState('');
 
   useEffect(() => {
     loadCharacters(
-      `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${nameToSearch}&status=${stastatusToSearch}`
+      `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${nameToSearch}&status=${stastatusToSearch}&gender=${genderToSearch}`
     );
-  }, [pageNumber, stastatusToSearch, nameToSearch]);
+  }, [pageNumber, stastatusToSearch, nameToSearch, genderToSearch]);
 
   const loadCharacters = (url) => {
     fetch(url)
@@ -35,6 +36,7 @@ const CharactersListBox = () => {
   const getSearch = (characterSearch) => {
     setNameToSearch(characterSearch.name);
     setStastatusToSearch(characterSearch.status);
+    setGenderToSearch(characterSearch.gender);
     setPageNumber('');
   };
 
