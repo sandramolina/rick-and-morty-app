@@ -12,10 +12,12 @@ const CharactersListBox = () => {
   const [pageNumber, setPageNumber] = useState('');
 
   useEffect(() => {
+    setQuery(searchText);
     loadCharacters(
       `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${query}`
     );
-  }, [pageNumber, query]);
+    setPageNumber('');
+  }, [pageNumber, searchText, query]);
 
   const loadCharacters = (url) => {
     fetch(url)
@@ -29,7 +31,6 @@ const CharactersListBox = () => {
 
   const handleSearchInput = (event) => {
     setSearchText(event.target.value);
-    setQuery(searchText);
   };
 
   const loadPage = (event) => {
