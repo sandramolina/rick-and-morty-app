@@ -17,8 +17,12 @@ const Search = ({ onFormSubmit }) => {
   };
   return (
     <section className='search'>
-      <form onSubmit={handleFormSubmit}>
-        <select name='status' onChange={handleStatusSelection}>
+      <form onSubmit={handleFormSubmit} className='search-form'>
+        <select
+          name='status'
+          onChange={handleStatusSelection}
+          className='selection'
+        >
           <option value='' defaultValue>
             -Chose a Status-
           </option>
@@ -36,7 +40,7 @@ const Search = ({ onFormSubmit }) => {
           onChange={handleSearchInput}
           autoFocus
         />
-        <input type='submit' value='Search'></input>
+        <input type='submit' value='Search' className='search-btn'></input>
       </form>
     </section>
   );
