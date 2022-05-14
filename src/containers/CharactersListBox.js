@@ -9,11 +9,13 @@ const CharactersListBox = () => {
   const [searchText, setSearchText] = useState('');
   const [query, setQuery] = useState('');
   const [pages, setPages] = useState(0);
-  let pageNumber = 0;
+  const [pageNumber, setPageNumber] = useState('');
 
   useEffect(() => {
-    loadCharacters(`https://rickandmortyapi.com/api/character/?name=${query}`);
-  }, [query]);
+    loadCharacters(
+      `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${query}`
+    );
+  }, [pageNumber, query]);
 
   const loadCharacters = (url) => {
     fetch(url)
@@ -31,10 +33,7 @@ const CharactersListBox = () => {
   };
 
   const loadPage = (event) => {
-    pageNumber = event.target.value;
-    loadCharacters(
-      `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${query}`
-    );
+    setPageNumber(event.target.value);
   };
 
   return (

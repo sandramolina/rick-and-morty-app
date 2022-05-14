@@ -133,13 +133,13 @@ ul {
   display: inline-block;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1230px) {
   .characters {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 621px) {
   .characters {
     grid-template-columns: 1fr;
   }

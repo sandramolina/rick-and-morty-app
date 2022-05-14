@@ -15,14 +15,16 @@ const ResultsPagination = ({ loadPage, pages }) => {
   return (
     <>
       <h4 id='pages-title'>Pages:</h4>
-      <ul className='pages-list'>
-        <li>
-          <button onClick={loadPage} value='' className='btn'>
-            1
-          </button>
-        </li>
-        {pagesArr}
-      </ul>
+      <nav>
+        <ul className='pages-list'>
+          <li>
+            <button onClick={loadPage} value='' className='btn'>
+              1
+            </button>
+          </li>
+          {pagesArr}
+        </ul>
+      </nav>
     </>
   );
 };
