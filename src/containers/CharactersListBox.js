@@ -9,24 +9,14 @@ const CharactersListBox = () => {
   const [pages, setPages] = useState(0);
   const [pageNumber, setPageNumber] = useState('');
 
-  const [searchText, setSearchText] = useState('');
-  const [status, setStatus] = useState('');
-  const [search, setSearch] = useState(false);
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    const nameToSearch = searchText;
-    const statusToSearch = status;
-
-    setSearch(true);
-  };
+  const [nameToSearch, setNameToSearch] = useState('');
+  const [stastatusToSearch, setStastatusToSearch] = useState('');
 
   useEffect(() => {
     loadCharacters(
       `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${nameToSearch}&status=${stastatusToSearch}`
     );
-    // setPageNumber('');
-  }, [pageNumber, search, nameToSearch, statusToSearch]);
+  }, [pageNumber, stastatusToSearch, nameToSearch]);
 
   const loadCharacters = (url) => {
     fetch(url)
@@ -38,22 +28,21 @@ const CharactersListBox = () => {
       .catch((err) => console.error);
   };
 
-  const handleSearchInput = (event) => setSearchText(event.target.value);
-
-  const handleStatusSelection = (event) => setStatus(event.target.value);
-
   const loadPage = (event) => {
     setPageNumber(event.target.value);
+  };
+
+  const getSearch = (characterSearch) => {
+    setNameToSearch(characterSearch.name);
+    setStastatusToSearch(characterSearch.status);
+    setPageNumber('');
   };
 
   return (
     <>
       <div>
         <TitleBar
-          searchText={searchText}
-          handleSearchInput={handleSearchInput}
-          handleStatusSelection={handleStatusSelection}
-          handleFormSubmit={handleFormSubmit}
+          onFormSubmit={(characterSearch) => getSearch(characterSearch)}
         />
       </div>
       <div>

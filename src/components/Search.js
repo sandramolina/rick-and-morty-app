@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Search = ({ searchCharacter }) => {
+const Search = ({ onFormSubmit }) => {
   const [searchText, setSearchText] = useState('');
+  const [status, setStatus] = useState('');
 
+  const handleSearchInput = (event) => setSearchText(event.target.value);
+  const handleStatusSelection = (event) => setStatus(event.target.value);
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const nameToSearch = searchText;
+    const statusToSearch = status;
+    onFormSubmit({ name: nameToSearch, status: statusToSearch });
+    setSearchText('');
+    setStatus('');
+  };
   return (
     <section className='search'>
       <form onSubmit={handleFormSubmit}>
