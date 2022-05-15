@@ -14,7 +14,7 @@ const Character = ({ character }) => {
         </div>
         <div className='card-back'>
           <h2>{character.name}</h2>
-          <ul>
+          <ul className='character-cards-list'>
             <li>
               <span
                 className={
