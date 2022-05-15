@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ResultsPagination = ({ loadPage, pages }) => {
+const ResultsPagination = ({ onPageChange, pages }) => {
   let pagesArr = [];
   for (let i = 2; i <= pages; i++) {
     pagesArr.push(
       <li key={i}>
-        <button className='btn' onClick={loadPage} value={i}>
+        <button className='btn' onClick={onPageChange} value={i}>
           {i}
         </button>
       </li>
@@ -18,7 +18,7 @@ const ResultsPagination = ({ loadPage, pages }) => {
       <nav>
         <ul className='pages-list'>
           <li>
-            <button onClick={loadPage} value='' className='btn'>
+            <button onClick={onPageChange} value='' className='btn'>
               1
             </button>
           </li>

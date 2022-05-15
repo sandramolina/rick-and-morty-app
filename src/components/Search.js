@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Search = ({ onFormSubmit }) => {
+const Search = ({ onFormSubmit, characterSearch }) => {
   const [searchText, setSearchText] = useState('');
   const [status, setStatus] = useState('');
   const [gender, setGender] = useState('');
@@ -14,6 +14,7 @@ const Search = ({ onFormSubmit }) => {
     const nameToSearch = searchText;
     const statusToSearch = status;
     const genderToSearch = gender;
+
     onFormSubmit({
       name: nameToSearch,
       status: statusToSearch,

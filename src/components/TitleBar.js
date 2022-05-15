@@ -1,7 +1,6 @@
 import React from 'react';
-import Search from './Search';
 
-const TitleBar = ({ onFormSubmit }) => {
+const TitleBar = () => {
   return (
     <div>
       <a href='http://localhost:3000/'>
@@ -9,7 +8,6 @@ const TitleBar = ({ onFormSubmit }) => {
       </a>
 
       <h1 id='title'>Chararters Grid</h1>
-      <Search onFormSubmit={onFormSubmit} />
     </div>
   );
 };

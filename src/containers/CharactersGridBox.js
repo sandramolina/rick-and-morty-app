@@ -3,6 +3,7 @@ import CharactersGrid from '../components/CharactersGrid';
 import NotFound from '../components/NotFound';
 import ResultsPagination from '../components/ResultsPagination';
 import TitleBar from '../components/TitleBar';
+import Search from '../components/Search';
 
 const CharactersGridBox = () => {
   const [characters, setCharacters] = useState([]);
@@ -14,12 +15,12 @@ const CharactersGridBox = () => {
   const [genderToSearch, setGenderToSearch] = useState('');
 
   useEffect(() => {
-    loadCharacters(
+    fetchCharacters(
       `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${nameToSearch}&status=${stastatusToSearch}&gender=${genderToSearch}`
     );
   }, [pageNumber, stastatusToSearch, nameToSearch, genderToSearch]);
 
-  const loadCharacters = (url) => {
+  const fetchCharacters = (url) => {
     fetch(url)
       .then((res) => res.json())
       .then((charactersGrid) => {
@@ -29,11 +30,11 @@ const CharactersGridBox = () => {
       .catch((err) => console.error);
   };
 
-  const loadPage = (event) => {
+  const onPageChange = (event) => {
     setPageNumber(event.target.value);
   };
 
-  const getSearch = (characterSearch) => {
+  const onSearch = (characterSearch) => {
     setNameToSearch(characterSearch.name);
     setStastatusToSearch(characterSearch.status);
     setGenderToSearch(characterSearch.gender);
@@ -43,15 +44,14 @@ const CharactersGridBox = () => {
   return (
     <>
       <div>
-        <TitleBar
-          onFormSubmit={(characterSearch) => getSearch(characterSearch)}
-        />
+        <TitleBar />
+        <Search onFormSubmit={onSearch} />
       </div>
       <div>
         {characters ? (
           <>
             <CharactersGrid characters={characters} />
-            <ResultsPagination loadPage={loadPage} pages={pages} />
+            <ResultsPagination onPageChange={onPageChange} pages={pages} />
           </>
         ) : (
           <NotFound />
