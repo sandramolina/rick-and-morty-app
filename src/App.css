@@ -11,16 +11,9 @@ body {
   margin-top: 1rem;
 }
 
-#title,
-#not-found,
-#pages-title {
+#title {
   color: #fff;
   font-size: xxx-large;
-  margin: 1%;
-}
-#pages-title {
-  color: #fff;
-  font-size: 2vw;
   margin: 1%;
 }
 
@@ -85,39 +78,4 @@ input[type='text'] {
   background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
   background-color: #0061a7;
   color: white;
-}
-
-@media (max-width: 621px) {
-  #pages-title {
-    font-size: 13vw;
-  }
-}
-
-.pages-list {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  justify-content: center;
-}
-
-.btn {
-  box-shadow: inset 0px 1px 18px 0px #000000;
-  background: linear-gradient(to bottom, #12b0c9 5%, #c9d5d7 100%);
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-weight: bold;
-  width: 30px;
-  height: 30px;
-  text-decoration: none;
-  margin-left: 0.2vw;
-}
-.btn:hover {
-  background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
-  background-color: #0061a7;
-}
-.btn:active {
-  position: relative;
-  top: 1px;
 }

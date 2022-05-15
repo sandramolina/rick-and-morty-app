@@ -1,4 +1,5 @@
 import React from 'react';
+import './ResultsPagination.css';
 
 const ResultsPagination = ({ onPageChange, pages }) => {
   let pagesArr = [];
