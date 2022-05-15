@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Search = ({ onFormSubmit, characterSearch }) => {
+const Search = ({ onFormSubmit }) => {
   const [searchText, setSearchText] = useState('');
   const [status, setStatus] = useState('');
   const [gender, setGender] = useState('');

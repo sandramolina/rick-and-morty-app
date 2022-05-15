@@ -11,14 +11,14 @@ const CharactersGridBox = () => {
   const [pageNumber, setPageNumber] = useState('');
 
   const [nameToSearch, setNameToSearch] = useState('');
-  const [stastatusToSearch, setStastatusToSearch] = useState('');
+  const [statusToSearch, setStatusToSearch] = useState('');
   const [genderToSearch, setGenderToSearch] = useState('');
 
   useEffect(() => {
     fetchCharacters(
-      `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${nameToSearch}&status=${stastatusToSearch}&gender=${genderToSearch}`
+      `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${nameToSearch}&status=${statusToSearch}&gender=${genderToSearch}`
     );
-  }, [pageNumber, stastatusToSearch, nameToSearch, genderToSearch]);
+  }, [pageNumber, statusToSearch, nameToSearch, genderToSearch]);
 
   const fetchCharacters = (url) => {
     fetch(url)
@@ -36,7 +36,7 @@ const CharactersGridBox = () => {
 
   const onSearch = (characterSearch) => {
     setNameToSearch(characterSearch.name);
-    setStastatusToSearch(characterSearch.status);
+    setStatusToSearch(characterSearch.status);
     setGenderToSearch(characterSearch.gender);
     setPageNumber('');
   };
