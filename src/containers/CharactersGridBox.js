@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CharactersGrid from '../components/CharactersGrid/CharactersGrid';
-import NotFound from '../components/NotFound';
+import NotFound from '../components/NotFound/NotFound';
 import ResultsPagination from '../components/ResultsPagination';
 import TitleBar from '../components/TitleBar';
 import Search from '../components/Search';
