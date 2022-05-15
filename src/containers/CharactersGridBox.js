@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CharactersGrid from '../components/CharactersGrid/CharactersGrid';
 import NotFound from '../components/NotFound/NotFound';
 import ResultsPagination from '../components/ResultsPagination/ResultsPagination';
-import TitleBar from '../components/TitleBar';
+import TitleBar from '../components/TitleBar/TitleBar';
 import Search from '../components/Search/Search';
 
 const CharactersGridBox = () => {

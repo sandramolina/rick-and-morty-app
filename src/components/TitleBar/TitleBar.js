@@ -1,4 +1,5 @@
 import React from 'react';
+import './TitleBar.css';
 
 const TitleBar = () => {
   return (
