@@ -1,10 +1,10 @@
 import './App.css';
-import CharactersListBox from './containers/CharactersListBox';
+import CharactersGridBox from './containers/CharactersGridBox';
 
 function App() {
   return (
     <div className='App'>
-      <CharactersListBox />
+      <CharactersGridBox />
     </div>
   );
 }

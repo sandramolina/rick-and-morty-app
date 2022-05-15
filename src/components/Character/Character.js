@@ -1,11 +1,16 @@
 import React from 'react';
+import './Character.css';
 
 const Character = ({ character }) => {
   return (
     <div className='character-card'>
       <div className='character-card-inner'>
         <div className='card-front'>
-          <img src={character.image} className='avatar'></img>
+          <img
+            src={character.image}
+            className='avatar'
+            alt='character avatar'
+          ></img>
         </div>
         <div className='card-back'>
           <h2>{character.name}</h2>

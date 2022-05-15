@@ -1,0 +1,7 @@
+.character-card {
+  margin: 6%;
+  cursor: pointer;
+  background-color: transparent;
+  height: 300px;
+  perspective: 1000px;
+}

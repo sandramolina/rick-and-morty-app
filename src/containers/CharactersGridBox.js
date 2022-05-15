@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import CharactersList from '../components/CharactersList';
+import CharactersGrid from '../components/CharactersGrid';
 import NotFound from '../components/NotFound';
 import ResultsPagination from '../components/ResultsPagination';
 import TitleBar from '../components/TitleBar';
 
-const CharactersListBox = () => {
+const CharactersGridBox = () => {
   const [characters, setCharacters] = useState([]);
   const [pages, setPages] = useState(0);
   const [pageNumber, setPageNumber] = useState('');
@@ -22,9 +22,9 @@ const CharactersListBox = () => {
   const loadCharacters = (url) => {
     fetch(url)
       .then((res) => res.json())
-      .then((charactersList) => {
-        setCharacters(charactersList.results);
-        setPages(charactersList.info.pages);
+      .then((charactersGrid) => {
+        setCharacters(charactersGrid.results);
+        setPages(charactersGrid.info.pages);
       })
       .catch((err) => console.error);
   };
@@ -50,7 +50,7 @@ const CharactersListBox = () => {
       <div>
         {characters ? (
           <>
-            <CharactersList characters={characters} />
+            <CharactersGrid characters={characters} />
             <ResultsPagination loadPage={loadPage} pages={pages} />
           </>
         ) : (
@@ -61,4 +61,4 @@ const CharactersListBox = () => {
   );
 };
 
-export default CharactersListBox;
+export default CharactersGridBox;

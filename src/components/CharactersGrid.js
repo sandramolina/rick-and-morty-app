@@ -1,7 +1,7 @@
 import React from 'react';
-import Character from './Character';
+import Character from './Character/Character';
 
-const CharactersList = ({ characters }) => {
+const CharactersGrid = ({ characters }) => {
   return (
     <div className='characters'>
       {characters.map((character) => (
@@ -11,4 +11,4 @@ const CharactersList = ({ characters }) => {
   );
 };
 
-export default CharactersList;
+export default CharactersGrid;
