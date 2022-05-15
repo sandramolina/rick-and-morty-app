@@ -87,34 +87,7 @@ input[type='text'] {
   color: white;
 }
 
-.characters {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-
-@media (max-width: 1601px) {
-  .characters {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-@media (max-width: 1460px) {
-  .characters {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 1230px) {
-  .characters {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 621px) {
-  .characters {
-    grid-template-columns: 1fr;
-  }
   #pages-title {
     font-size: 13vw;
   }

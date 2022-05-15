@@ -1,5 +1,6 @@
 import React from 'react';
-import Character from './Character/Character';
+import './CharactersGrid.css';
+import Character from '../Character/Character';
 
 const CharactersGrid = ({ characters }) => {
   return (
