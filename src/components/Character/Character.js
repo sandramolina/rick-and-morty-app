@@ -1,8 +1,10 @@
 import React from 'react';
 import './Character.css';
 
-const Character = ({ character }) => {
+const Character = ({ character, onFaveClick, deleteToFavorite }) => {
   const { name, image, status, species, gender, origin, location } = character;
+  const handleFaveClick = () => onFaveClick(character);
+  const handleUnFaveClick = () => deleteToFavorite(character);
   return (
     <div className='character-card'>
       <div className='character-card-inner'>
@@ -12,7 +14,8 @@ const Character = ({ character }) => {
             className='avatar'
             alt={`character ${name} avatar`}
           ></img>
-          <button>Click</button>
+          <button onClick={handleFaveClick}>Fave</button>
+          <button onClick={handleUnFaveClick}>Un-fave</button>
         </div>
         <div className='card-back'>
           <h2>{name}</h2>
