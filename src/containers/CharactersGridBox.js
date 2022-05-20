@@ -20,15 +20,17 @@ const CharactersGridBox = () => {
     );
   }, [pageNumber, statusToSearch, nameToSearch, genderToSearch]);
 
-  const fetchCharacters = (url) => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((charactersGrid) => {
-        setCharacters(charactersGrid.results);
-        setPages(charactersGrid.info.pages);
-      })
-      .catch((err) => console.error);
+  const fetchCharacters = async (url) => {
+    const res = await fetch(url);
+    // if (!res.ok) {
+    //   const message = `An error has occured: ${res.status}`;
+    //   throw new Error(message);
+    // }
+    const charactersGrid = await res.json();
+    setCharacters(charactersGrid.results);
+    setPages(charactersGrid.info.pages);
   };
+  // fetch().catch((err) => err.message);
 
   const onPageChange = (event) => {
     setPageNumber(event.target.value);
