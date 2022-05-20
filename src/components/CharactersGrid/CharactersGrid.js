@@ -2,7 +2,12 @@ import React from 'react';
 import './CharactersGrid.css';
 import Character from '../Character/Character';
 
-const CharactersGrid = ({ characters, onFaveClick, deleteToFavorite }) => {
+const CharactersGrid = ({
+  characters,
+  onFaveClick,
+  deleteToFavorite,
+  favesCharacters,
+}) => {
   return (
     <div className='characters'>
       {characters.map((character) => (
@@ -11,6 +16,7 @@ const CharactersGrid = ({ characters, onFaveClick, deleteToFavorite }) => {
           character={character}
           onFaveClick={onFaveClick}
           deleteToFavorite={deleteToFavorite}
+          favesCharacters={favesCharacters}
         />
       ))}
     </div>

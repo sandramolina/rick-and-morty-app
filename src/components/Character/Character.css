@@ -90,3 +90,45 @@
     object-fit: contain;
   }
 }
+
+/* FAVE */
+
+.unfave-btn{
+  background: #181ed270;
+  border: none;
+  outline: none;
+  padding: 2px 5px;
+  border-radius: 25px;
+  font-weight: bold;
+  color:  #c9d5d7;;
+  cursor: pointer;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.25);
+  font-size: larger;
+  min-width: 80px;
+}
+.faved:hover, .unfaved:hover {
+  transform: scale(5);
+}
+
+.faved{
+  color:  #fafaf7;
+  margin-right: 3px;
+}
+
+.unfaved{
+  margin-right: 3px;
+}
+
+.fave-btn{
+  background: #d21818;
+  border: none;
+  outline: none;
+  padding: 2px 5px;
+  border-radius: 25px;
+  font-weight: bold;
+  color:  #c9d5d7;;
+  cursor: pointer;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.25);
+  font-size: larger;
+  min-width: 80px;
+}

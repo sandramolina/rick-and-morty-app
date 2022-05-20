@@ -75,7 +75,9 @@ const CharactersGridBox = () => {
               characters={characters}
               onFaveClick={onFaveClick}
               deleteToFavorite={deleteToFavorite}
+              favesCharacters={favesCharacters}
             />
+            {/* {console.log(favesCharacters)} */}
             <CharacterPopUp trigger={false}>POPUP</CharacterPopUp>
             <ResultsPagination onPageChange={onPageChange} pages={pages} />
           </>

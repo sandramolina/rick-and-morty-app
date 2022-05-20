@@ -1,10 +1,24 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
 import './Character.css';
 
-const Character = ({ character, onFaveClick, deleteToFavorite }) => {
+const Character = ({
+  character,
+  onFaveClick,
+  deleteToFavorite,
+  favesCharacters,
+}) => {
   const { name, image, status, species, gender, origin, location } = character;
-  const handleFaveClick = () => onFaveClick(character);
-  const handleUnFaveClick = () => deleteToFavorite(character);
+  const handleFaveClick = () => {
+    if (favesCharacters.includes(character)) {
+      deleteToFavorite(character);
+    } else {
+      onFaveClick(character);
+    }
+  };
+
   return (
     <div className='character-card'>
       <div className='character-card-inner'>
@@ -14,8 +28,21 @@ const Character = ({ character, onFaveClick, deleteToFavorite }) => {
             className='avatar'
             alt={`character ${name} avatar`}
           ></img>
-          <button onClick={handleFaveClick}>Fave</button>
-          <button onClick={handleUnFaveClick}>Un-fave</button>
+          <button
+            onClick={handleFaveClick}
+            className={
+              favesCharacters.includes(character) ? 'fave-btn' : 'unfave-btn'
+            }
+          >
+            <i
+              className={
+                favesCharacters.includes(character) ? 'faved' : 'unfaved'
+              }
+            >
+              <FontAwesomeIcon icon={faHeart} />
+            </i>
+            Fave
+          </button>
         </div>
         <div className='card-back'>
           <h2>{name}</h2>
