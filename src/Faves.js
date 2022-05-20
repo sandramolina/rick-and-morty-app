@@ -1,10 +1,23 @@
-import React from 'react';
+import NavBar from './components/NavBar/NavBar';
+import TitleBar from './components/TitleBar/TitleBar';
 
-const Faves = () => {
+const Faves = ({ favesCharacters }) => {
   return (
-    <div>
-      <h1>Faves</h1>
-    </div>
+    <>
+      <NavBar />
+      <TitleBar>Favourite Characters</TitleBar>
+      {/* <div className='characters'>
+        {favesCharacters.map((character) => (
+          <Character
+            key={character['id']}
+            character={character}
+            onFaveClick={onFaveClick}
+            deleteToFavorite={deleteToFavorite}
+            favesCharacters={favesCharacters}
+          />
+        ))}
+      </div> */}
+    </>
   );
 };
 

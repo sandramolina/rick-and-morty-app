@@ -13,24 +13,3 @@ root.render(
     </Routes>
   </BrowserRouter>
 );
-
-// <BrowserRouter>
-// <Routes>
-//   <Route path="/" element={<App />}>
-//     <Route index element={<Home />} />
-//     <Route path="teams" element={<Teams />}>
-//       <Route path=":teamId" element={<Team />} />
-//       <Route path="new" element={<NewTeamForm />} />
-//       <Route index element={<LeagueStandings />} />
-//     </Route>
-//   </Route>
-// </Routes>
-// </BrowserRouter>
-
-// {
-//   /* <NavBar />
-//         <Routes>
-//           <Route exact path='/' component={App} />
-//           <Route path='/faves' component={Faves} />
-//         </Routes> */
-// }
