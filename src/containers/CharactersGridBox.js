@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import CharactersGrid from '../components/CharactersGrid/CharactersGrid';
 import NotFound from '../components/NotFound/NotFound';
@@ -7,6 +8,7 @@ import TitleBar from '../components/TitleBar/TitleBar';
 import Search from '../components/Search/Search';
 import CharacterPopUp from '../components/CharacterPopUp/CharacterPopUp';
 import NavBar from '../components/NavBar/NavBar';
+import Faves from '../components/Faves/Faves';
 
 const CharactersGridBox = () => {
   const [characters, setCharacters] = useState([]);
@@ -66,28 +68,49 @@ const CharactersGridBox = () => {
 
   return (
     <>
-      <NavBar />
       <div>
         <TitleBar>Characters Grid</TitleBar>
         <Search onFormSubmit={onSearch} />
       </div>
-      <div>
-        {characters ? (
-          <>
-            <CharactersGrid
-              characters={characters}
-              onFaveClick={onFaveClick}
-              deleteToFavorite={deleteToFavorite}
-              favesCharacters={favesCharacters}
-            />
-            {/* {console.log(favesCharacters)} */}
-            <CharacterPopUp trigger={false}>POPUP</CharacterPopUp>
-            <ResultsPagination onPageChange={onPageChange} pages={pages} />
-          </>
-        ) : (
-          <NotFound />
-        )}
-      </div>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route
+            index
+            element={
+              <>
+                {characters ? (
+                  <>
+                    <CharactersGrid
+                      characters={characters}
+                      onFaveClick={onFaveClick}
+                      deleteToFavorite={deleteToFavorite}
+                      favesCharacters={favesCharacters}
+                    />
+                    <CharacterPopUp trigger={false}>POPUP</CharacterPopUp>
+                    <ResultsPagination
+                      onPageChange={onPageChange}
+                      pages={pages}
+                    />
+                  </>
+                ) : (
+                  <NotFound />
+                )}
+              </>
+            }
+          />
+          <Route
+            path='faves'
+            element={
+              <Faves
+                favesCharacters={favesCharacters}
+                onFaveClick={onFaveClick}
+                deleteToFavorite={deleteToFavorite}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
