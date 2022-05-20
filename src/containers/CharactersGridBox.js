@@ -4,6 +4,7 @@ import NotFound from '../components/NotFound/NotFound';
 import ResultsPagination from '../components/ResultsPagination/ResultsPagination';
 import TitleBar from '../components/TitleBar/TitleBar';
 import Search from '../components/Search/Search';
+import CharacterPopUp from '../components/CharacterPopUp/CharacterPopUp';
 
 const CharactersGridBox = () => {
   const [characters, setCharacters] = useState([]);
@@ -53,6 +54,7 @@ const CharactersGridBox = () => {
         {characters ? (
           <>
             <CharactersGrid characters={characters} />
+            <CharacterPopUp trigger={false}>POPUP</CharacterPopUp>
             <ResultsPagination onPageChange={onPageChange} pages={pages} />
           </>
         ) : (
