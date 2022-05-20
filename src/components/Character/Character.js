@@ -12,6 +12,7 @@ const Character = ({ character }) => {
             className='avatar'
             alt={`character ${name} avatar`}
           ></img>
+          <button>Click</button>
         </div>
         <div className='card-back'>
           <h2>{name}</h2>

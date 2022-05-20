@@ -31,7 +31,7 @@
   transform-style: preserve-3d;
 }
 
-.character-card:hover .character-card-inner {
+.character-card:active .character-card-inner {
   transform: rotateY(180deg);
 }
 
