@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+import './NavBar.css';
 
 const NavBar = () => {
   return (
-    <nav>
+    <nav className='navigation'>
       <Link to='/'>Home</Link> | <Link to='faves'>Favourites</Link>
     </nav>
   );
