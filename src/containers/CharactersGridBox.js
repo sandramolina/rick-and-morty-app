@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+
 import CharactersGrid from '../components/CharactersGrid/CharactersGrid';
 import NotFound from '../components/NotFound/NotFound';
 import ResultsPagination from '../components/ResultsPagination/ResultsPagination';
 import TitleBar from '../components/TitleBar/TitleBar';
 import Search from '../components/Search/Search';
 import CharacterPopUp from '../components/CharacterPopUp/CharacterPopUp';
+import NavBar from '../components/NavBar/NavBar';
 
 const CharactersGridBox = () => {
   const [characters, setCharacters] = useState([]);
@@ -64,6 +66,7 @@ const CharactersGridBox = () => {
 
   return (
     <>
+      <NavBar />
       <div>
         <TitleBar />
         <Search onFormSubmit={onSearch} />
