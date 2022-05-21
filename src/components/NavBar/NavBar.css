@@ -1,0 +1,19 @@
+.navigation {
+    color: #fff;
+    font-size: xx-large;
+    /* font-family: 'Courier New', Courier, monospace !important; */
+    font-weight: bold;
+    margin: 1rem;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.star-icon {
+    color: goldenrod;
+}
+
+.home-icon {
+color: #12b0c9;
+}

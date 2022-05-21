@@ -1,43 +1,77 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 import './Character.css';
 
-const Character = ({ character }) => {
+const Character = ({
+  character,
+  onFaveClick,
+  deleteToFavorite,
+  favesCharacters,
+}) => {
+  const { name, image, status, species, gender, origin, location } = character;
+  const handleFaveClick = () => {
+    if (favesCharacters.includes(character)) {
+      deleteToFavorite(character);
+    } else {
+      onFaveClick(character);
+    }
+  };
+
   return (
     <div className='character-card'>
       <div className='character-card-inner'>
         <div className='card-front'>
           <img
-            src={character.image}
+            src={image}
             className='avatar'
-            alt='character avatar'
+            alt={`character ${name} avatar`}
           ></img>
+          <div className='card-buttom'>
+            <button
+              onClick={handleFaveClick}
+              className={
+                favesCharacters.includes(character) ? 'fave-btn' : 'unfave-btn'
+              }
+            >
+              <i
+                className={
+                  favesCharacters.includes(character) ? 'faved' : 'unfaved'
+                }
+              >
+                <FontAwesomeIcon icon={faStar} />
+              </i>
+            </button>
+            <h3 className='front-name'>{name}</h3>
+          </div>
         </div>
         <div className='card-back'>
-          <h2>{character.name}</h2>
+          <h2>{name}</h2>
           <ul className='character-cards-list'>
             <li>
               <span
                 className={
-                  character.status === 'Alive'
+                  status === 'Alive'
                     ? 'status-icon-alive'
-                    : character.status === 'Dead'
+                    : status === 'Dead'
                     ? 'status-icon-dead'
                     : 'status-icon-unknown'
                 }
               ></span>
-              <strong>Stats:</strong> {character.status}
+              <strong>Stats:</strong> {status}
             </li>
             <li>
-              <strong>Species:</strong> {character.species}
+              <strong>Species:</strong> {species}
             </li>
             <li>
-              <strong>Gender:</strong> {character.gender}
+              <strong>Gender:</strong> {gender}
             </li>
             <li>
-              <strong>Origin:</strong> {character.origin.name}
+              <strong>Origin:</strong> {origin.name}
             </li>
             <li>
-              <strong>Last known location:</strong> {character.location.name}
+              <strong>Last known location:</strong> {location.name}
             </li>
           </ul>
         </div>
