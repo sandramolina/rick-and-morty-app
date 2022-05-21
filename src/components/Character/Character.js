@@ -43,6 +43,7 @@ const Character = ({
                 <FontAwesomeIcon icon={faStar} />
               </i>
             </button>
+            <h3 className='front-name'>{name}</h3>
           </div>
         </div>
         <div className='card-back'>
