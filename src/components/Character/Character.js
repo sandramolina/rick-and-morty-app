@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 import './Character.css';
 
@@ -35,12 +35,13 @@ const Character = ({
                 favesCharacters.includes(character) ? 'fave-btn' : 'unfave-btn'
               }
             >
-              <i
-                className={
-                  favesCharacters.includes(character) ? 'faved' : 'unfaved'
-                }
-              >
+              <i className={favesCharacters.includes(character) ? 'faved' : ''}>
                 <FontAwesomeIcon icon={faStar} />
+              </i>
+            </button>
+            <button className='info-btn'>
+              <i className='more-info'>
+                <FontAwesomeIcon icon={faCircleInfo} />
               </i>
             </button>
             <h3 className='front-name'>{name}</h3>
