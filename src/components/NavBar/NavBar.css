@@ -1,7 +1,7 @@
 .navigation {
     color: #fff;
     font-size: xx-large;
-    font-family: 'Courier New', Courier, monospace !important;
+    /* font-family: 'Courier New', Courier, monospace !important; */
     font-weight: bold;
     margin: 1rem;
 }

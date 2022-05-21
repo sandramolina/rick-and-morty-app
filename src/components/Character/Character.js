@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 import './Character.css';
 
@@ -28,21 +28,22 @@ const Character = ({
             className='avatar'
             alt={`character ${name} avatar`}
           ></img>
-          <button
-            onClick={handleFaveClick}
-            className={
-              favesCharacters.includes(character) ? 'fave-btn' : 'unfave-btn'
-            }
-          >
-            <i
+          <div className='card-buttom'>
+            <button
+              onClick={handleFaveClick}
               className={
-                favesCharacters.includes(character) ? 'faved' : 'unfaved'
+                favesCharacters.includes(character) ? 'fave-btn' : 'unfave-btn'
               }
             >
-              <FontAwesomeIcon icon={faHeart} />
-            </i>
-            Fave
-          </button>
+              <i
+                className={
+                  favesCharacters.includes(character) ? 'faved' : 'unfaved'
+                }
+              >
+                <FontAwesomeIcon icon={faStar} />
+              </i>
+            </button>
+          </div>
         </div>
         <div className='card-back'>
           <h2>{name}</h2>
