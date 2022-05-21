@@ -20,7 +20,7 @@ const Character = ({
     }
   };
 
-  const handlePlusInfoClick = () => onPlusInfoClick();
+  const handlePlusInfoClick = (e) => onPlusInfoClick(e);
 
   return (
     <div className='character-card'>
@@ -42,7 +42,11 @@ const Character = ({
                 <FontAwesomeIcon icon={faStar} />
               </i>
             </button>
-            <button className='info-btn' onClick={handlePlusInfoClick}>
+            <button
+              className='info-btn'
+              onClick={handlePlusInfoClick}
+              value={character.id}
+            >
               <i className='more-info'>
                 <FontAwesomeIcon icon={faCircleInfo} />
               </i>
