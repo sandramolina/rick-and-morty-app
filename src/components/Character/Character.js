@@ -9,6 +9,7 @@ const Character = ({
   onFaveClick,
   deleteToFavorite,
   favesCharacters,
+  onPlusInfoClick,
 }) => {
   const { name, image, status, species, gender, origin, location } = character;
   const handleFaveClick = () => {
@@ -18,6 +19,8 @@ const Character = ({
       onFaveClick(character);
     }
   };
+
+  const handlePlusInfoClick = () => onPlusInfoClick();
 
   return (
     <div className='character-card'>
@@ -39,7 +42,7 @@ const Character = ({
                 <FontAwesomeIcon icon={faStar} />
               </i>
             </button>
-            <button className='info-btn'>
+            <button className='info-btn' onClick={handlePlusInfoClick}>
               <i className='more-info'>
                 <FontAwesomeIcon icon={faCircleInfo} />
               </i>

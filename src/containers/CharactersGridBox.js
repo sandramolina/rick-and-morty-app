@@ -21,6 +21,8 @@ const CharactersGridBox = () => {
 
   const [favesCharacters, setFavesCharacters] = useState([]);
 
+  const [popUp, setPopUp] = useState(false);
+
   useEffect(() => {
     fetchCharacters(
       `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${nameToSearch}&status=${statusToSearch}&gender=${genderToSearch}`
@@ -66,6 +68,8 @@ const CharactersGridBox = () => {
     setFavesCharacters(temp);
   };
 
+  const onPlusInfoClick = () => setPopUp(true);
+
   return (
     <>
       <div>
@@ -86,8 +90,9 @@ const CharactersGridBox = () => {
                       onFaveClick={onFaveClick}
                       deleteToFavorite={deleteToFavorite}
                       favesCharacters={favesCharacters}
+                      onPlusInfoClick={onPlusInfoClick}
                     />
-                    <CharacterPopUp trigger={false}>POPUP</CharacterPopUp>
+                    <CharacterPopUp trigger={popUp}>POPUP</CharacterPopUp>
                     <ResultsPagination
                       onPageChange={onPageChange}
                       pages={pages}
