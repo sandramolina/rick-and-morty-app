@@ -9,7 +9,7 @@ const TitleBar = () => {
       </a>
 
       <h1 id='title' data-testid='title-test'>
-        Characters Grid
+        Characters Grid!!
       </h1>
     </div>
   );
