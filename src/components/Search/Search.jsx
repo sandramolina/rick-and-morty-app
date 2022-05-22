@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './Search.css';
 
-const Search = ({ onFormSubmit }) => {
+// eslint-disable-next-line react/prop-types
+function Search({ onFormSubmit }) {
   const [searchText, setSearchText] = useState('');
   const [status, setStatus] = useState('');
   const [gender, setGender] = useState('');
@@ -23,48 +24,47 @@ const Search = ({ onFormSubmit }) => {
     });
   };
   return (
-    <section className='search'>
-      <form onSubmit={handleFormSubmit} className='search-form'>
+    <section className="search">
+      <form onSubmit={handleFormSubmit} className="search-form">
         <select
-          name='status'
+          name="status"
           onChange={handleStatusSelection}
-          className='selection'
+          className="selection"
         >
-          <option value='' defaultValue>
+          <option value="" defaultValue>
             -Chose a Status-
           </option>
-          <option value='alive'>Alive</option>
-          <option value='dead'>Dead</option>
-          <option value='unknown'>Unknown</option>
+          <option value="alive">Alive</option>
+          <option value="dead">Dead</option>
+          <option value="unknown">Unknown</option>
         </select>
 
         <select
-          name='gender'
+          name="gender"
           onChange={handleGenderSelection}
-          className='selection'
+          className="selection"
         >
-          <option value='' defaultValue>
+          <option value="" defaultValue>
             -Chose a Gender-
           </option>
-          <option value='female'>Female</option>
-          <option value='male'>Male</option>
-          <option value='genderless'>Genderless</option>
-          <option value='unknown'>Unknown</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="genderless">Genderless</option>
+          <option value="unknown">Unknown</option>
         </select>
 
         <input
-          type='text'
-          className='form-control'
-          placeholder='Search character name'
-          name='inputName'
+          type="text"
+          className="form-control"
+          placeholder="Search character name"
+          name="inputName"
           value={searchText}
           onChange={handleSearchInput}
-          autoFocus
         />
-        <input type='submit' value='Search' className='search-btn'></input>
+        <input type="submit" value="Search" className="search-btn" />
       </form>
     </section>
   );
-};
+}
 
 export default Search;

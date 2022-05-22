@@ -1,17 +1,21 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 import './Character.css';
 
-const Character = ({
+function Character({
   character,
   onFaveClick,
   deleteToFavorite,
   favesCharacters,
   onPlusInfoClick,
-}) => {
-  const { name, image, status, species, gender, origin, location } = character;
+}) {
+  const {
+    name, image, status, species, gender, origin, location,
+  } = character;
   const handleFaveClick = () => {
     if (favesCharacters.includes(character)) {
       deleteToFavorite(character);
@@ -23,16 +27,17 @@ const Character = ({
   const handlePlusInfoClick = (e) => onPlusInfoClick(e);
 
   return (
-    <div className='character-card'>
-      <div className='character-card-inner'>
-        <div className='card-front'>
+    <div className="character-card">
+      <div className="character-card-inner">
+        <div className="card-front">
           <img
             src={image}
-            className='avatar'
+            className="avatar"
             alt={`character ${name} avatar`}
-          ></img>
-          <div className='card-buttom'>
+          />
+          <div className="card-buttom">
             <button
+              type="button"
               onClick={handleFaveClick}
               className={
                 favesCharacters.includes(character) ? 'fave-btn' : 'unfave-btn'
@@ -47,49 +52,60 @@ const Character = ({
               </i>
             </button>
             <button
-              className='info-btn'
+              type="button"
+              className="info-btn"
               onClick={handlePlusInfoClick}
               value={character.id}
             >
-              <i className='more-info'>
+              <i className="more-info">
                 <FontAwesomeIcon icon={faCircleInfo} />
               </i>
             </button>
-            <h3 className='front-name'>{name}</h3>
+            <h3 className="front-name">{name}</h3>
           </div>
         </div>
-        <div className='card-back'>
+        <div className="card-back">
           <h2>{name}</h2>
-          <ul className='character-cards-list'>
+          <ul className="character-cards-list">
             <li>
               <span
                 className={
                   status === 'Alive'
                     ? 'status-icon-alive'
                     : status === 'Dead'
-                    ? 'status-icon-dead'
-                    : 'status-icon-unknown'
+                      ? 'status-icon-dead'
+                      : 'status-icon-unknown'
                 }
-              ></span>
-              <strong>Stats:</strong> {status}
+              />
+              <strong>Stats:</strong>
+              {' '}
+              {status}
             </li>
             <li>
-              <strong>Species:</strong> {species}
+              <strong>Species:</strong>
+              {' '}
+              {species}
             </li>
             <li>
-              <strong>Gender:</strong> {gender}
+              <strong>Gender:</strong>
+              {' '}
+              {gender}
             </li>
             <li>
-              <strong>Origin:</strong> {origin.name}
+              <strong>Origin:</strong>
+              {' '}
+              {origin.name}
             </li>
             <li>
-              <strong>Last known location:</strong> {location.name}
+              <strong>Last known location:</strong>
+              {' '}
+              {location.name}
             </li>
           </ul>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Character;
