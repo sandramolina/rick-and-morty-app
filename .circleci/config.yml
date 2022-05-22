@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  aws-s3: circleci/aws-s3@3.0.0
 jobs:
   test:
     docker:
@@ -8,13 +10,34 @@ jobs:
       - run: npm install
       - run: npm test
       # - run: npm run lint
+  deploy:
+    docker:
+      - image: cimg/node:14.19.3
+    environment:
+      AWS_REGION: eu-west-2
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
+      - aws-s3/sync:
+          from: build
+          to: 's3://rick-and-morty-e57/'
+          arguments: |
+            --acl public-read \
+            --cache-control "max-age=86400" \
 workflows:
   version: 2.1
   build:
     jobs:
       - test:
+        filters:
+          branches:
+            only:
+              - main
+              - develop
+      - deploy:
+          requires:
+            - test
           filters:
             branches:
-              only:
-                - main
-                - develop
+              only: main
