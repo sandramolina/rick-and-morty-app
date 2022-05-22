@@ -38,7 +38,11 @@ const Character = ({
                 favesCharacters.includes(character) ? 'fave-btn' : 'unfave-btn'
               }
             >
-              <i className={favesCharacters.includes(character) ? 'faved' : ''}>
+              <i
+                className={
+                  favesCharacters.includes(character) ? 'faved' : 'unfaved'
+                }
+              >
                 <FontAwesomeIcon icon={faStar} />
               </i>
             </button>
