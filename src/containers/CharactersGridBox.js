@@ -84,7 +84,7 @@ const CharactersGridBox = () => {
   return (
     <>
       <div>
-        <TitleBar>Characters Grid</TitleBar>
+        <TitleBar />
         <Search onFormSubmit={onSearch} />
       </div>
       <BrowserRouter>
