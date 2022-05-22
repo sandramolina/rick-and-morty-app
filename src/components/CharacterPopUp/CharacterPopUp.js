@@ -6,23 +6,6 @@ import '../Character/Character.css';
 function CharacterPopUp({ trigger, characterPopedUp, closePopUp }) {
   const { name, image, status, species, gender, origin, location } =
     characterPopedUp;
-  // const [test, settest] = useState('');
-
-  // const firstEpisode = async () => {
-  //   const res = await fetch(episode[0]);
-  //   if (!res.ok) {
-  //     const message = `An error has occured: ${res.status}`;
-  //     throw new Error(message);
-  //   }
-  //   const firstEpisode = await res.json();
-  //   settest(firstEpisode.name);
-  // };
-  // fetch().catch((err) => err.message);
-
-  // useEffect(() => {
-  //   firstEpisode();
-  //   // eslint-disable-next-line
-  // }, [characterPopedUp]);
 
   const handlePopUpClose = () => closePopUp();
   return trigger ? (
@@ -61,9 +44,6 @@ function CharacterPopUp({ trigger, characterPopedUp, closePopUp }) {
               <li>
                 <strong>Last known location:</strong> {location.name}
               </li>
-              {/* <li>
-                <strong>First Seen on:</strong> {test}
-              </li> */}
             </ul>
           </div>
         </div>
