@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
-      # - run: npm run lint
+      - run: npm run lint
   deploy:
     docker:
       - image: cimg/node:14.19.3

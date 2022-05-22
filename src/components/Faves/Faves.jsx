@@ -1,11 +1,13 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
 import Character from '../Character/Character';
 
-const Faves = ({ favesCharacters, onFaveClick, deleteToFavorite }) => {
+function Faves({ favesCharacters, onFaveClick, deleteToFavorite }) {
   return (
-    <div className='characters'>
+    <div className="characters">
       {favesCharacters.map((character) => (
         <Character
-          key={character['id']}
+          key={character.id}
           character={character}
           onFaveClick={onFaveClick}
           deleteToFavorite={deleteToFavorite}
@@ -14,6 +16,6 @@ const Faves = ({ favesCharacters, onFaveClick, deleteToFavorite }) => {
       ))}
     </div>
   );
-};
+}
 
 export default Faves;

@@ -10,7 +10,7 @@ import CharacterPopUp from '../components/CharacterPopUp/CharacterPopUp';
 import NavBar from '../components/NavBar/NavBar';
 import Faves from '../components/Faves/Faves';
 
-const CharactersGridBox = () => {
+function CharactersGridBox() {
   const [characters, setCharacters] = useState([]);
   const [pages, setPages] = useState(0);
   const [pageNumber, setPageNumber] = useState('');
@@ -24,12 +24,6 @@ const CharactersGridBox = () => {
   const [popUp, setPopUp] = useState(false);
   const [characterPopedUp, setCharacterPopedUp] = useState('');
 
-  useEffect(() => {
-    fetchCharacters(
-      `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${nameToSearch}&status=${statusToSearch}&gender=${genderToSearch}`
-    );
-  }, [pageNumber, statusToSearch, nameToSearch, genderToSearch]);
-
   const fetchCharacters = async (url) => {
     const res = await fetch(url);
     // if (!res.ok) {
@@ -41,6 +35,12 @@ const CharactersGridBox = () => {
     setPages(charactersGrid.info.pages);
   };
   // fetch().catch((err) => err.message);
+
+  useEffect(() => {
+    fetchCharacters(
+      `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${nameToSearch}&status=${statusToSearch}&gender=${genderToSearch}`,
+    );
+  }, [pageNumber, statusToSearch, nameToSearch, genderToSearch]);
 
   const onPageChange = (event) => {
     setPageNumber(event.target.value);
@@ -56,7 +56,7 @@ const CharactersGridBox = () => {
   const onFaveClick = (favedCharacter) => {
     const copyArray = [...favesCharacters];
     const isOnArray = copyArray.some(
-      (character) => character.id === favedCharacter.id
+      (character) => character.id === favedCharacter.id,
     );
     if (!isOnArray) {
       copyArray.push(favedCharacter);
@@ -92,8 +92,8 @@ const CharactersGridBox = () => {
         <Routes>
           <Route
             index
-            element={
-              <>
+            element={(
+              <div>
                 {characters ? (
                   <>
                     <CharactersGrid
@@ -107,7 +107,7 @@ const CharactersGridBox = () => {
                       trigger={popUp}
                       closePopUp={closePopUp}
                       characterPopedUp={characterPopedUp}
-                    ></CharacterPopUp>
+                    />
                     <ResultsPagination
                       onPageChange={onPageChange}
                       pages={pages}
@@ -116,23 +116,23 @@ const CharactersGridBox = () => {
                 ) : (
                   <NotFound />
                 )}
-              </>
-            }
+              </div>
+            )}
           />
           <Route
-            path='faves'
-            element={
+            path="faves"
+            element={(
               <Faves
                 favesCharacters={favesCharacters}
                 onFaveClick={onFaveClick}
                 deleteToFavorite={deleteToFavorite}
               />
-            }
+            )}
           />
         </Routes>
       </BrowserRouter>
     </>
   );
-};
+}
 
 export default CharactersGridBox;

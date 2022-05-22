@@ -1,19 +1,20 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import './CharactersGrid.css';
 import Character from '../Character/Character';
 
-const CharactersGrid = ({
+function CharactersGrid({
   characters,
   onFaveClick,
   deleteToFavorite,
   favesCharacters,
   onPlusInfoClick,
-}) => {
+}) {
   return (
-    <div className='characters'>
+    <div className="characters">
       {characters.map((character) => (
         <Character
-          key={character['id']}
+          key={character.id}
           character={character}
           onFaveClick={onFaveClick}
           deleteToFavorite={deleteToFavorite}
@@ -23,6 +24,6 @@ const CharactersGrid = ({
       ))}
     </div>
   );
-};
+}
 
 export default CharactersGrid;
