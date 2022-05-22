@@ -7,6 +7,7 @@ const CharactersGrid = ({
   onFaveClick,
   deleteToFavorite,
   favesCharacters,
+  onPlusInfoClick,
 }) => {
   return (
     <div className='characters'>
@@ -17,6 +18,7 @@ const CharactersGrid = ({
           onFaveClick={onFaveClick}
           deleteToFavorite={deleteToFavorite}
           favesCharacters={favesCharacters}
+          onPlusInfoClick={onPlusInfoClick}
         />
       ))}
     </div>
