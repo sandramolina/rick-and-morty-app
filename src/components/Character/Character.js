@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 import './Character.css';
 
@@ -9,6 +9,7 @@ const Character = ({
   onFaveClick,
   deleteToFavorite,
   favesCharacters,
+  onPlusInfoClick,
 }) => {
   const { name, image, status, species, gender, origin, location } = character;
   const handleFaveClick = () => {
@@ -18,6 +19,8 @@ const Character = ({
       onFaveClick(character);
     }
   };
+
+  const handlePlusInfoClick = (e) => onPlusInfoClick(e);
 
   return (
     <div className='character-card'>
@@ -41,6 +44,15 @@ const Character = ({
                 }
               >
                 <FontAwesomeIcon icon={faStar} />
+              </i>
+            </button>
+            <button
+              className='info-btn'
+              onClick={handlePlusInfoClick}
+              value={character.id}
+            >
+              <i className='more-info'>
+                <FontAwesomeIcon icon={faCircleInfo} />
               </i>
             </button>
             <h3 className='front-name'>{name}</h3>
