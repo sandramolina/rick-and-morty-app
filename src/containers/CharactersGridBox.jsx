@@ -122,11 +122,20 @@ function CharactersGridBox() {
           <Route
             path="faves"
             element={(
-              <Faves
-                favesCharacters={favesCharacters}
-                onFaveClick={onFaveClick}
-                deleteToFavorite={deleteToFavorite}
-              />
+              <>
+                <Faves
+                  favesCharacters={favesCharacters}
+                  onFaveClick={onFaveClick}
+                  deleteToFavorite={deleteToFavorite}
+                  onPlusInfoClick={onPlusInfoClick}
+                />
+                <CharacterPopUp
+                  trigger={popUp}
+                  closePopUp={closePopUp}
+                  characterPopedUp={characterPopedUp}
+                />
+              </>
+
             )}
           />
         </Routes>

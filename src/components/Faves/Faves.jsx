@@ -2,7 +2,12 @@
 import React from 'react';
 import Character from '../Character/Character';
 
-function Faves({ favesCharacters, onFaveClick, deleteToFavorite }) {
+function Faves({
+  favesCharacters,
+  onFaveClick,
+  deleteToFavorite,
+  onPlusInfoClick,
+}) {
   return (
     <div className="characters">
       {favesCharacters.map((character) => (
@@ -12,6 +17,7 @@ function Faves({ favesCharacters, onFaveClick, deleteToFavorite }) {
           onFaveClick={onFaveClick}
           deleteToFavorite={deleteToFavorite}
           favesCharacters={favesCharacters}
+          onPlusInfoClick={onPlusInfoClick}
         />
       ))}
     </div>
