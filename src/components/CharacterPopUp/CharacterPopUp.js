@@ -3,28 +3,26 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import './CharacterPopUp.css';
 import '../Character/Character.css';
 
-import { useEffect, useState } from 'react';
-
 function CharacterPopUp({ trigger, characterPopedUp, closePopUp }) {
-  const { name, image, status, species, gender, origin, location, episode } =
+  const { name, image, status, species, gender, origin, location } =
     characterPopedUp;
-  const [test, settest] = useState('');
+  // const [test, settest] = useState('');
 
-  const firstEpisode = async () => {
-    const res = await fetch(episode[0]);
-    if (!res.ok) {
-      const message = `An error has occured: ${res.status}`;
-      throw new Error(message);
-    }
-    const firstEpisode = await res.json();
-    settest(firstEpisode.name);
-  };
-  fetch().catch((err) => err.message);
+  // const firstEpisode = async () => {
+  //   const res = await fetch(episode[0]);
+  //   if (!res.ok) {
+  //     const message = `An error has occured: ${res.status}`;
+  //     throw new Error(message);
+  //   }
+  //   const firstEpisode = await res.json();
+  //   settest(firstEpisode.name);
+  // };
+  // fetch().catch((err) => err.message);
 
-  useEffect(() => {
-    firstEpisode();
-    // eslint-disable-next-line
-  }, [characterPopedUp]);
+  // useEffect(() => {
+  //   firstEpisode();
+  //   // eslint-disable-next-line
+  // }, [characterPopedUp]);
 
   const handlePopUpClose = () => closePopUp();
   return trigger ? (
@@ -63,9 +61,9 @@ function CharacterPopUp({ trigger, characterPopedUp, closePopUp }) {
               <li>
                 <strong>Last known location:</strong> {location.name}
               </li>
-              <li>
+              {/* <li>
                 <strong>First Seen on:</strong> {test}
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
