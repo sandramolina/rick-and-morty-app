@@ -77,8 +77,15 @@ function CharactersGridBox() {
       (cObject) => cObject.id == characterPopedUpId
     );
     setCharacterPopedUp(characterPopedUpObject);
-    setPopUp(true);
   };
+  useEffect(() => {
+    setPopUp(true);
+  }, [characterPopedUp]);
+
+  useEffect(() => {
+    setCharacterPopedUp('');
+  }, [popUp]);
+
   const closePopUp = () => setPopUp(false);
 
   return (
