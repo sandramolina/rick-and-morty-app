@@ -645,4 +645,5 @@ const dataList = {
   ],
 };
 
-console.log(dataList.results[0].id);
+// console.log(dataList.results[0].id);
+export default dataList;

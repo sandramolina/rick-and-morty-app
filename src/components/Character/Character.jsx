@@ -69,8 +69,9 @@ function Character({
         <div className="card-back">
           <h2>{name}</h2>
           <ul className="character-cards-list">
-            <li>
+            <li aria-label="status">
               <span
+                aria-label="status-icon"
                 className={
                   status === 'Alive'
                     ? 'status-icon-alive'
