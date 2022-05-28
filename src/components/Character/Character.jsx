@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -24,7 +25,9 @@ function Character({
     }
   };
 
-  const handlePlusInfoClick = (e) => onPlusInfoClick(e);
+  const handlePlusInfoClick = (e) => {
+    onPlusInfoClick(e);
+  };
 
   return (
     <div className="character-card">
@@ -52,7 +55,6 @@ function Character({
               </i>
             </button>
             <button
-              type="button"
               className="info-btn"
               onClick={handlePlusInfoClick}
               value={character.id}
