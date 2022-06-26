@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    favList: []
+    faveList: ["yas ", "queen!"]
 }
 
-export const favesSlice = createSlice({
-    name: 'favourites',
+export const faveSlice = createSlice({
+    name: 'counterName',
     initialState,
     reducers: {
-        addNewFave: (state) => {
-            state.favList = ["Hello"]
+        increment: (state) => {
+            state.faveList = [...state.faveList, "krrr!"];
         },
-        deleteFave: (state) => {
-            state.favList = ["Hello"]
+        decrement: (state) => {
+            state.faveList.pop();
         },
     }
 });
 
-export const {addNewFave, deleteFave} = favesSlice.actions;
-export default favesSlice.reducer;
+export const {increment, decrement} = faveSlice.actions;
+export default faveSlice.reducer;

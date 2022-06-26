@@ -9,6 +9,7 @@ import Search from '../components/Search/Search';
 import CharacterPopUp from '../components/CharacterPopUp/CharacterPopUp';
 import NavBar from '../components/NavBar/NavBar';
 import Faves from '../components/Faves/Faves';
+import Favoritos from '../app/features/faves/Favoritos';
 
 function CharactersGridBox() {
   const [characters, setCharacters] = useState([]);
@@ -119,6 +120,7 @@ function CharactersGridBox() {
                       onPageChange={onPageChange}
                       pages={pages}
                     />
+                    <Favoritos/>
                   </>
                 ) : (
                   <NotFound />
